@@ -12,25 +12,10 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-
-[//]: # (Image References)
-
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
-## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
-
 ---
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/weicheng113/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
-### Data Set Summary & Exploration
+### Dataset Summary & Exploration
 #### 1. Summary
 I used the numpy library to calculate summary statistics of the traffic signs data set:
 
@@ -42,28 +27,30 @@ I used the numpy library to calculate summary statistics of the traffic signs da
 
 #### 2. Exploration
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data is distributed, with x-axis being sign label numbers and y-axis being counts. I also plot 43 images from different classes with its classId as title on top.
+Here is an exploratory visualization of the data set. It is a bar chart showing how the data is distributed, with x-axis being sign label numbers and y-axis being counts. I also plot 43 image samples from different classes with its classId as title on top.
 
-![Exploration Chart][exploration_chart.png]
+![Exploration Chart](exploration_chart.png)
+
+![Sample Images from Different Classes](different_class_samples.png)
 
 ### Design and Test a Model Architecture
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+#### 1. Preprocessing
 
 As a first step, I decided to convert the images to grayscale because it results better training speed and based on my experiments, it has a slightly better accuracy. 
 
 Here is an example of a traffic sign image before and after grayscaling.
 
-![Sign Image Before Grayscaling][sign_image_before_grayscaling]
-![Sign Image After Grayscaling][sign_image_after_grayscaling]
+![Sign Image Before Grayscaling](sign_image_before_grayscaling.png)
+![Sign Image After Grayscaling](sign_image_after_grayscaling.png)
 
 As a last step, I normalized the image data to the range of [0.1, 0.9] because it converges quicker in my experiments than (pixel - 128)/float(128), which is the range of [-1, 1]. Here is an example of a grayscaled traffic sign image and its normalized image.
 
-![Sign Image After Grayscaling][sign_image_after_grayscaling]
-![Sign Image After Grayscaling][sign_image_after_normalized]
+![Sign Image After Grayscaling](sign_image_after_grayscaling.png)
+![Sign Image After Grayscaling](sign_image_after_normalized.png)
 
 
-#### 2. Model
+#### 2. Model Architecture
 
 My final model consisted of the following layers:
 
@@ -85,24 +72,20 @@ My final model consisted of the following layers:
 | Fully connected		| outputs 100        									|
 | RELU					|												|
 | Fully connected		| outputs 43        									|
-| RELU					|												|
-|						|												|
-|						|												|
- 
 
 
-#### 3. Model training
+#### 3. Model Training
 
 To train the model, I used an AdamOptimizer with learning rate 0.001 and minimizing the loss by softmax and cross entropy with the logits from the model above. I set batch size of 128 and epochs to 10 for the training.
 
-#### 4. My approach
+#### 4. My Approach
 
 My final model results were:
-* training set accuracy of 0.998
-* validation set accuracy of 0.950
-* test set accuracy of 0.930
+* training set accuracy of 0.996
+* validation set accuracy of 0.949
+* test set accuracy of 0.932
 
-I first tried with the model from Udacity CNN course, 2 conv layers followed by 3 full connected layers. With that i can only get to slight more than 80% accuracy. So I tried to turn learning rate, add more conv layers and the depth of conv layers. From my experiments, I received a good start accuracy rate with learning rate of 0.05, but it was not stable towards the end. Adding one more conv layer and increasing the depth of conv layers helps to improve accuracy. I eventually settled with 3 conv layers and reasonable depths of conv layers, as there was not much improvement in accuracy by depth increase but it took longer to train. With these configuration, I was able to get to more than 90% accuracy with 10 epochs. I then played with image grayscale and adjusted image pixel normalization from the range of [-1, 1], (x-128)/128, to the range [0.1, 0.9], (0.9 - 0.1)*images/255+0.1. With this, I was finally able to reach around 95% accuracy on validation dataset. Beside, I added a dropout activation to the third conv layer to prevent overfitting and from the final accuracy results on three dataset above, the model is ok.
+I started with the original LeNet model from Udacity CNN course, 2 conv layers followed by 3 full connected layers. With that I can only get to slight more than 80% accuracy. So I tried to turn learning rate, add more conv layers and increase the depth of conv layers. From my experiments, I received a good start accuracy rate with learning rate of 0.05, but it was not stable towards the end. Adding one more conv layer and increasing the depth of conv layers help to improve accuracy. I eventually settled with 3 conv layers and reasonable depths of conv layers, as there was not much improvement in accuracy by depth increase but it took longer to train. With these configurations, I was able to get to more than 90% accuracy with 10 epochs. I then played with image grayscaling and adjusted image pixel normalization from the range of [-1, 1], (x-128)/128, to the range [0.1, 0.9], (0.9 - 0.1)*images/255+0.1. With this, I was finally able to reach around 95% accuracy on validation dataset. Beside, I added a dropout activation to the second conv layer to prevent overfitting and from the final accuracy results on three dataset above, the model performed ok.
  
 
 ### Test the Model on New Images
@@ -111,12 +94,12 @@ I first tried with the model from Udacity CNN course, 2 conv layers followed by 
 
 Here are six German traffic signs that I found on the web:
 
-![Stop sign][sample_images/pic1] ![No entry][sample_images/pic2] ![General caution][sample_images/pic3] 
-![Slippery road][sample_images/pic4] ![Speed limit (70km/h)][sample_images/pic5] ![Ahead only][sample_images/pic6]
+![Stop sign](sample_images/pic1.jpg) ![No entry](sample_images/pic2.jpg) ![General caution](sample_images/pic3.jpg)
+![Slippery road](sample_images/pic4.jpg) ![Speed limit (70km/h)](sample_images/pic5.jpg) ![Ahead only](sample_images/pic6.jpg)
 
-The first, fourth and fifth images are difficult, as the first one is quite dark, the fourth being a complicated drawing and the fifth of Speed limit 70km/h not being clearly depicted. And the rest three images are relatively easy to identify.
+The first, fourth and fifth images are difficult, as the first one is quite dark, the fourth being a complicated drawing and the fifth of Speed limit 70km/h not being clearly depicted. And the rest three images are relatively easy to identify. It will be interesting to see how well the model will predicate on these new images.
 
-#### 2. The model's predictions on these new traffic signs
+#### 2. The Model's Prediction Performance on New Images
 
 Here are the results of the prediction:
 
@@ -132,9 +115,9 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 6 of the 6 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 0.930.
 
-#### 3. The model's certain on new images' prediction
+#### 3. The Model's Certainty on New Image Predictions
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook. The top five softmax for the six sample images are as follows.
+The code for making predictions on my final model is located in the 11th cell of the Ipython notebook. The top five softmax for the six sample images are as follows. From the following tables, we can see that the model are quite certain with all the predictions, as the probability value are ranging from 0.99 to 1.00 for all the six images.
 
 The first stop sign:
 
