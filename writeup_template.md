@@ -123,61 +123,61 @@ The first stop sign:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 9.99964952e-01         			| 14 Stop   									| 
-| 2.22187809e-05     				| 1 Speed limit (30km/h) 										|
-| 3.88751414e-06					| 38 Keep right											|
-| 2.97820020e-06	      			| 33 Turn right ahead					 				|
-| 2.24264568e-06				    | 4 Speed limit (70km/h)      							|
+| 9.99985337e-01        			| 14 Stop   									| 
+| 4.51564392e-06     				| 15 No vehicles 										|
+| 3.54532608e-06					| 33 Turn right ahead											|
+| 2.48102515e-06	      			| 1 Speed limit (30km/h)					 				|
+| 1.33502806e-06				    | 38 Keep right      							|
 
 The second no entry sign:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.00000000e+00         			| 17 No entry   									| 
-| 5.42338563e-10     				| 33 Turn right ahead 										|
-| 9.21653240e-11					| 14 Stop											|
-| 6.56020377e-11	      			| 34 Turn left ahead					 				|
-| 1.66341559e-11				    | 23 Slippery Road      							|
+| 5.04085038e-11     				| 34 Turn left ahead 										|
+| 9.55884026e-13					| 14 Stop											|
+| 3.76840765e-15	      			| 9 No passing					 				|
+| 6.73425392e-16				    | 33 Turn right ahead      							|
 
 The third general caution sign:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.00000000e+00         			| 18 General caution   									| 
-| 3.71913278e-10     				| 27 Pedestrians 										|
-| 3.64076885e-14					| 26 Traffic signals											|
-| 5.13204441e-18	      			| 11 Right-of-way at the next intersection					 				|
-| 2.18185406e-21				    | 33 Turn right ahead      							|
+| 1.47351287e-08     				| 27 Pedestrians 										|
+| 1.85860466e-10					| 26 Traffic signals											|
+| 2.45239658e-12	      			| 11 Right-of-way at the next intersection					 				|
+| 1.02094643e-13				    | 28 Children crossing      							|
 
 The fourth slippery road sign:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.00000000e+00         			| 23 Slippery road   									| 
-| 8.36287928e-10     				| 28 Children crossing 										|
-| 5.46616141e-10					| 19 Dangerous curve to the left											|
-| 3.24310262e-12	      			| 20 Dangerous curve to the right					 				|
-| 2.63477868e-12				    | 29 Bicycles crossing      							|
+| 2.41387870e-08     				| 20 Dangerous curve to the right 										|
+| 3.62839669e-09					| 30 Beware of ice/snow											|
+| 1.95584965e-10	      			| 19 Dangerous curve to the left					 				|
+| 3.04523594e-12				    | 10 No passing for vehicles over 3.5 metric tons      							|
 
 The fifth speed limit (70km/h) sign:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 9.99964237e-01         			| 4 Speed limit (70km/h)   									| 
-| 2.84179605e-05     				| 1 Speed limit (30km/h) 										|
-| 5.97700910e-06					| 14 Stop											|
-| 1.25307747e-06	      			| 0 Speed limit (20km/h)					 				|
-| 1.55657432e-07				    | 8 Speed limit (120km/h)      							| 
+| 9.99845147e-01         			| 4 Speed limit (70km/h)   									| 
+| 9.91718916e-05     				| 1 Speed limit (30km/h) 										|
+| 4.22728808e-05					| 8 Speed limit (120km/h)											|
+| 1.19109536e-05	      			| 0 Speed limit (20km/h)					 				|
+| 5.97366125e-07				    | 5 Speed limit (80km/h)      							| 
 
 The sixth ahead only sign:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 9.99994993e-01,            			| 35 Ahead only   									| 
-| 4.98195868e-06     				| 33 Turn right ahead 										|
-| 2.92078433e-08					| 34 Turn left ahead											|
-| 1.81852347e-08	      			| 9 No passing					 				|
-| 1.42763676e-08				    | 38 Keep right      							| 
+| 9.99999642e-01,            			| 35 Ahead only   									| 
+| 2.04531190e-07     				| 10 No passing for vehicles over 3.5 metric tons 										|
+| 4.05413658e-08					| 13 Yield											|
+| 3.44771713e-08	      			| 9 No passing					 				|
+| 3.15178106e-08				    | 15 No vehicles      							| 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
