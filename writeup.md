@@ -27,7 +27,7 @@ I used the numpy library to calculate summary statistics of the traffic signs da
 
 #### 2. Exploration
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data is distributed, with x-axis being sign label numbers and y-axis being counts. I also plot 43 image samples from different classes with its classId as title on top.
+Here is an exploratory visualization of the data set. It is a bar chart showing how the data is distributed, with x-axis being sign label numbers and y-axis being counts. I also plotted 43 image samples from different classes with its classId as title on top.
 
 ![Exploration Chart](exploration_chart.png)
 
@@ -37,14 +37,14 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 #### 1. Preprocessing
 
-As a first step, I decided to convert the images to grayscale because it results better training speed and based on my experiments, it has a slightly better accuracy. 
+As a first step, I decided to convert the images to grayscale because it resulted a better training speed and based on my experiments, it gave a slightly better accuracy. 
 
 Here is an example of a traffic sign image before and after grayscaling.
 
 ![Sign Image Before Grayscaling](sign_image_before_grayscaling.png)
 ![Sign Image After Grayscaling](sign_image_after_grayscaling.png)
 
-As a last step, I normalized the image data to the range of [0.1, 0.9] because it converges quicker in my experiments than (pixel - 128)/float(128), which is the range of [-1, 1]. Here is an example of a grayscaled traffic sign image and its normalized image.
+As a last step, I normalized the image data to the range of [0.1, 0.9] because it converged quicker in my experiments than (pixel - 128)/float(128), which was the range of [-1, 1]. Here is an example of a grayscaled traffic sign image and its normalized image.
 
 ![Sign Image After Grayscaling](sign_image_after_grayscaling.png)
 ![Sign Image After Grayscaling](sign_image_after_normalized.png)
@@ -113,11 +113,11 @@ Here are the results of the prediction:
 | Ahead only	      		| 35 Ahead only					 				|
 
 
-The model was able to correctly guess 6 of the 6 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 0.930.
+The model was able to correctly guess 6 of the 6 traffic signs, which gave an accuracy of 100%. This compares favorably to the accuracy on the test set of 0.930.
 
 #### 3. The Model's Certainty on New Image Predictions
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook. The top five softmax for the six sample images are as follows. From the following tables, we can see that the model are quite certain with all the predictions, as the probability value are ranging from 0.99 to 1.00 for all the six images.
+The code for making predictions on my final model is located in the 12th cell of the Ipython notebook. The top five softmax for the six sample images are as follows. From the following tables, we can see that the model are quite certain with all the predictions, as the probability values are ranging from 0.99 to 1.00 for all the six images.
 
 The first stop sign:
 
